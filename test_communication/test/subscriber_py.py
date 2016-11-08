@@ -69,6 +69,13 @@ def listener(message_name, number_of_cycles):
         qos_profile_default)
 
     spin_count = 1
+    print('waiting for connection')
+    wait_set = rclpy._rclpy.rclpy_get_zero_initialized_wait_set()
+    rclpy._rclpy.rclpy_wait_set_init(wait_set, 0, 1, 0)
+
+    rclpy._rclpy.rclpy_wait_set_clear_guard_conditions(wait_set)
+    rclpy._rclpy.rclpy_wait_set_add_graph_guard_condition(node.handle, wait_set)
+    rclpy._rclpy.rclpy_wait(wait_set, -1)
     print('subscriber: beginning loop')
     while (rclpy.ok() and spin_count < number_of_cycles and
            len(received_messages) != len(expected_msgs)):
