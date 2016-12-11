@@ -51,14 +51,15 @@ def talker(message_name, number_of_cycles):
             chatter_pub.publish(msg)
             msg_count += 1
             print('publishing message #%d' % msg_count)
-        time.sleep(1)
+            time.sleep(0.01)
+        time.sleep(0.1)
     rclpy.shutdown()
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(formatter_class=argparse.ArgumentDefaultsHelpFormatter)
     parser.add_argument('message_name', default='Primitives',
                         help='name of the ROS message')
-    parser.add_argument('-n', '--number_of_cycles', type=int, default=20,
+    parser.add_argument('-n', '--number_of_cycles', type=int, default=100,
                         help='number of sending attempts')
     args = parser.parse_args()
     try:
