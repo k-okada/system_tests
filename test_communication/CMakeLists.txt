@@ -323,11 +323,12 @@ if(BUILD_TESTING)
       "test/test_replier.cpp")
 
     set(rmw_implementation1 "${rmw_implementation}")
+    set(rmw_implementation2 "${rmw_implementation}")
     set(target_suffix1 "${target_suffix}")
 
-    foreach(rmw_implementation2 ${rmw_implementations2})
-      multi_client_libraries()
-    endforeach()
+    # foreach(rmw_implementation2 ${rmw_implementations2})
+    multi_client_libraries()
+    # endforeach()
   endmacro()
 
   set(append_library_dirs "${CMAKE_CURRENT_BINARY_DIR}")
