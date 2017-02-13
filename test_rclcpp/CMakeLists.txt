@@ -149,7 +149,7 @@ if(BUILD_TESTING)
 
     custom_launch_test(test_client_scope_consistency_cpp
       test_client_scope_consistency_server_cpp test_client_scope_consistency_client_cpp
-      TIMEOUT 60)
+      TIMEOUT 120)
   endmacro()
 
   set(append_library_dirs "${CMAKE_CURRENT_BINARY_DIR}")

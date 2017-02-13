@@ -216,7 +216,7 @@ if(BUILD_TESTING)
         PYTHON_EXECUTABLE "${_PYTHON_EXECUTABLE}"
         APPEND_ENV PYTHONPATH="${CMAKE_CURRENT_BINARY_DIR}/rosidl_generator_py:${CMAKE_CURRENT_SOURCE_DIR}:${CMAKE_CURRENT_BINARY_DIR}/../../rclpy"
         APPEND_LIBRARY_DIRS "${append_library_dirs}"
-        TIMEOUT 30
+        TIMEOUT 120
         ${SKIP_TEST})
       set_tests_properties(
         test_publisher_subscriber${test_suffix}

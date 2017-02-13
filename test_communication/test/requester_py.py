@@ -64,7 +64,7 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser(formatter_class=argparse.ArgumentDefaultsHelpFormatter)
     parser.add_argument('service_name', default='Primitives',
                         help='name of the ROS message')
-    parser.add_argument('-n', '--number_of_cycles', type=int, default=10,
+    parser.add_argument('-n', '--number_of_cycles', type=int, default=3,
                         help='number of sending attempts')
     args = parser.parse_args()
     try:
