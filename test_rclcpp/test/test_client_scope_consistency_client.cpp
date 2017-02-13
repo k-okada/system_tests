@@ -51,7 +51,7 @@ TEST(CLASSNAME(service_client, RMW_IMPLEMENTATION), client_scope_consistency_reg
     std::cout.flush();
     auto client1 = node->create_client<test_rclcpp::srv::AddTwoInts>(
       "client_scope", rmw_qos_profile);
-    if (!client1->wait_for_service(20s)) {
+    if (!client1->wait_for_service(40s)) {
       ASSERT_TRUE(false) << "service not available after waiting";
     }
     auto request1 = std::make_shared<test_rclcpp::srv::AddTwoInts::Request>();
@@ -87,7 +87,7 @@ TEST(CLASSNAME(service_client, RMW_IMPLEMENTATION), client_scope_consistency_reg
 
     auto client2 = node->create_client<test_rclcpp::srv::AddTwoInts>(
       "client_scope", rmw_qos_profile);
-    if (!client2->wait_for_service(20s)) {
+    if (!client2->wait_for_service(40s)) {
       ASSERT_TRUE(false) << "service not available after waiting";
     }
     auto request2 = std::make_shared<test_rclcpp::srv::AddTwoInts::Request>();

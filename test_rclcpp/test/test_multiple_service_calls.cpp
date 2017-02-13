@@ -48,7 +48,7 @@ TEST(CLASSNAME(test_two_service_calls, RMW_IMPLEMENTATION), two_service_calls) {
     "test_two_service_calls", handle_add_two_ints);
 
   auto client = node->create_client<test_rclcpp::srv::AddTwoInts>("test_two_service_calls");
-  if (!client->wait_for_service(20s)) {
+  if (!client->wait_for_service(40s)) {
     ASSERT_TRUE(false) << "service not available after waiting";
   }
 
@@ -110,7 +110,7 @@ TEST(CLASSNAME(test_multiple_service_calls, RMW_IMPLEMENTATION), multiple_client
   fflush(stdout);
   // Send all the requests
   for (auto & pair : client_request_pairs) {
-    if (!pair.first->wait_for_service(20s)) {
+    if (!pair.first->wait_for_service(40s)) {
       ASSERT_TRUE(false) << "service not available after waiting";
     }
     results.push_back(pair.first->async_send_request(pair.second));

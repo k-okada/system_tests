@@ -141,15 +141,15 @@ if(BUILD_TESTING)
     # Service tests single implementation
     custom_launch_test(test_services_cpp
       test_services_server_cpp test_services_client_cpp
-      TIMEOUT 60)
+      TIMEOUT 120)
 
     custom_launch_test(test_client_scope_cpp
       test_client_scope_server_cpp test_client_scope_client_cpp
-      TIMEOUT 30)
+      TIMEOUT 60)
 
     custom_launch_test(test_client_scope_consistency_cpp
       test_client_scope_consistency_server_cpp test_client_scope_consistency_client_cpp
-      TIMEOUT 30)
+      TIMEOUT 60)
   endmacro()
 
   set(append_library_dirs "${CMAKE_CURRENT_BINARY_DIR}")

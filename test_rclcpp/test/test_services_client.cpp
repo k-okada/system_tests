@@ -39,7 +39,7 @@ TEST(CLASSNAME(test_services_client, RMW_IMPLEMENTATION), test_add_noreqid) {
   request->a = 1;
   request->b = 2;
 
-  if (!client->wait_for_service(20s)) {
+  if (!client->wait_for_service(40s)) {
     ASSERT_TRUE(false) << "service not available after waiting";
   }
 
@@ -59,7 +59,7 @@ TEST(CLASSNAME(test_services_client, RMW_IMPLEMENTATION), test_add_reqid) {
   request->a = 4;
   request->b = 5;
 
-  if (!client->wait_for_service(20s)) {
+  if (!client->wait_for_service(40s)) {
     ASSERT_TRUE(false) << "service not available after waiting";
   }
 
@@ -80,7 +80,7 @@ TEST(CLASSNAME(test_services_client, RMW_IMPLEMENTATION), test_return_request) {
   request->a = 4;
   request->b = 5;
 
-  if (!client->wait_for_service(20s)) {
+  if (!client->wait_for_service(40s)) {
     ASSERT_TRUE(false) << "service not available after waiting";
   }
 

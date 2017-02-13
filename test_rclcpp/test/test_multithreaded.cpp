@@ -197,7 +197,7 @@ TEST(CLASSNAME(test_multithreaded, RMW_IMPLEMENTATION), multi_consumer_clients) 
     std::vector<SharedFuture> results;
     // Send all the requests
     for (auto & pair : client_request_pairs) {
-      if (!pair.first->wait_for_service(20s)) {
+      if (!pair.first->wait_for_service(40s)) {
         ASSERT_TRUE(false) << "service not available after waiting";
       }
       results.push_back(pair.first->async_send_request(pair.second));
@@ -222,7 +222,7 @@ TEST(CLASSNAME(test_multithreaded, RMW_IMPLEMENTATION), multi_consumer_clients) 
     std::vector<SharedFuture> results;
     // Send all the requests again
     for (auto & pair : client_request_pairs) {
-      if (!pair.first->wait_for_service(20s)) {
+      if (!pair.first->wait_for_service(40s)) {
         ASSERT_TRUE(false) << "service not available after waiting";
       }
       results.push_back(pair.first->async_send_request(pair.second));
