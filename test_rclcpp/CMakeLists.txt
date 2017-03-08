@@ -2,9 +2,11 @@ cmake_minimum_required(VERSION 3.5)
 
 project(test_rclcpp)
 
-if(NOT WIN32)
-  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++14 -Wall -Wextra -Wpedantic")
-else()
+set(CMAKE_CXX_STANDARD 14)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
+  add_compile_options(-Wall -Wextra -Wpedantic)
+elseif(MSVC)
   # /bigobj is needed to avoid error C1128:
   #   https://msdn.microsoft.com/en-us/library/8578y171.aspx
   set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /bigobj")
